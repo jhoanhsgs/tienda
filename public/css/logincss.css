@@ -1,0 +1,28 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+#loginadm{
+	width: 40%;
+	position: absolute;
+	top: 30%;
+	left: 30%;
+	padding: 1%;
+}
+#loginadm input{
+	display: block;
+	width: 80%;
+	margin: 0 auto;
+	margin-bottom: 2%;
+}
+#loginadm label{
+	color:white;
+}
+
+#loginadm #logo_loginadm{
+	width: 20%;
+	position: relative;
+	left: 40%;
+	border-radius: 100%;
+	margin-bottom: 5%;
+}
