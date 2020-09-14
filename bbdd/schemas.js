@@ -4,7 +4,7 @@ const schema = mongoose.Schema;
 const userSchema = new schema({
 	user:String,
 	password:String,
-	//caducidad:Date,
+	caducidad:Number,
 	rol:Number
 })
 

@@ -6,19 +6,26 @@ const user = models.user;
 const login= async (username, pass)=>{
 	const data = await user.findOne({user:username,password:pass}).exec()
 	if(data){
-		return {rol:data.rol,status:200}
+		return {caducidad:data.caducidad,rol:data.rol,status:200}
 	}else{
 		return {status:404}
 	}
 }
 
-const creating=async(username,pass,rol)=>{
-	const datos = new user({
-		user:username,
-		password:pass,
-		rol:rol
-	})
-	datos.save();
+const creating=async(username,pass,caducidad,rol)=>{
+	exist = await login(username,pass);
+	if(exist.status == 404){
+		const datos = new user({
+			user:username,
+			password:pass,
+			caducidad:caducidad,
+			rol:rol
+		})
+		datos.save();
+		return "Usuario creado satisfactoriamente"
+	}else{
+		return "El usuario ya existe"
+	}
 }
 
 const nVps = async(ip,puertos,username,password,conex,localidad)=>{

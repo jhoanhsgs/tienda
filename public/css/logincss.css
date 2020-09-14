@@ -26,3 +26,40 @@
 	border-radius: 100%;
 	margin-bottom: 5%;
 }
+
+
+@keyframes notificacion{
+	from{
+		background-color: rgba(0,0,0,.1);
+		color:red;
+	}
+	to{
+		background-color: white;
+		color:white;	
+	};
+}
+.notificacion{
+	text-align: center;
+	/*position: absolute;
+	bottom: -10;*/
+	width: 100%;
+	animation-name:notificacion;
+	animation-duration: 15s;
+	background-color: white;
+	color:white;
+
+}
+
+@media only screen and (max-width: 1000px){
+	#loginadm{
+		width: 90%;
+		position: absolute;
+		top: 30%;
+		left: 5%;
+		padding: 1%;
+	}
+	body{
+		background-color: red;
+		align-content: center;
+	}
+}

@@ -10,12 +10,18 @@
 
 	<section id="loginadm">
 		<img id="logo_loginadm" src="img/logo.jpg">
-		<form method="post" action="/home" class="form-group">	
+		<form method="post" action="/home" class="form-group">
+
 			<input type="text" name="user" placeholder="Usuario" class="form-control">
 			<input type="password" name="pass" placeholder="Contraseña" class="form-control">
 			<input type="submit" name="enviar" value="Ingresar" class="form-control">
 		</form>
+		{{#if error}}
+			<div class="notificacion">
+				<p>{{error}}</p>
+			</div>
+		{{/if}}
 	</section>
-
+	
 </body>
 </html>

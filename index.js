@@ -43,7 +43,9 @@ app.post("/home",async (req,res)=>{
 	pass = req.body.pass;
 	const response = await queries.login(user,pass);
 	if(response.status==404){
-		res.redirect("/")		
+		res.render("login",{
+			error:"Usuario o contraseña incorrecto"
+		})		
 	}
 	if(response.status==200){
 		switch(response.rol){
@@ -51,16 +53,23 @@ app.post("/home",async (req,res)=>{
 				res.render("homeadm")
 				break;
 			default:
-				const vpss = await queries.getVps();
-				console.log(vpss)
-				res.render("vps",{vpss})
+				const today = Date.now();
+				if(today>response.caducidad){
+					res.render("login",{
+						error:"cuenta caducada"
+					})
+				}else{
+					const vpss = await queries.getVps();
+					res.render("vps",{vpss})
+				}
 		}
 	}
 })
 
 app.post("/create-user",async (req,res)=>{
-	queries.creating(req.body.user,req.body.pass,req.body.rol);
-	res.render("homeadm")
+	const d = new Date(req.body.caducidad).getTime();
+	const response = await queries.creating(req.body.user,req.body.pass,d,req.body.rol);
+	res.render("homeadm",{user:response})
 })
 //ip, puertos,usuario, contraseña, conexiones, localidad
 app.post('/create-vps', async (req,res)=>{

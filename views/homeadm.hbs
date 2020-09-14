@@ -1,5 +1,9 @@
 {{>header}}
-
+	{{#if user}}
+		<div class="notificacion">
+			{{user}}
+		</div>
+	{{/if}}
 	<h2>Nuevo user</h2>
 	<form method="post" action="/create-user" class="form-group">
 		<input type="text" class="form-control" name="user" placeholder="Usuario" required >
@@ -8,6 +12,10 @@
 			<option value="1">usuario</option>
 			<option value="0">administrador</option>
 		</select>
+		<div>
+			<!--<span class="glyphicon glyphicon-calendar"></span>-->
+			<input type="date" name="caducidad" class="form-control">
+		</div>
 		<input type="submit" class="form-control" name="Enviar" value="Create">
 	</form>
 
