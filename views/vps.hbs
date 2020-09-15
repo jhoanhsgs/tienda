@@ -1,0 +1,25 @@
+{{>header}}
+{{#each vpss}}
+    <div class="col-md-3 col-sm-6">
+       <div class="single-shop-product">
+           <div class="product-upper">
+               <img src="img/vps.png" alt="">
+           </div>
+           <h2><a href="">{{this.ip}}</a></h2>
+           <div class="product-carousel-price">
+                <b> Puertos:</b> <ins>{{this.puertos}}</ins><br>            
+                <b> User:</b> <ins>{{this.user}}</ins>
+                <b> Pass:</b> <ins>{{this.pass}}</ins><br>
+                <b> Conexiones:</b> <ins>{{this.conexiones}}</ins><br>
+                <b> Pais:</b> <ins>{{this.localidad}}</ins>           
+            </div>       
+           </div>               
+       </div>
+    </div>
+{{/each}}
+
+
+
+
+
+{{>footer}}

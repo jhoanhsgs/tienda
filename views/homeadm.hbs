@@ -1,0 +1,35 @@
+{{>header}}
+	{{#if user}}
+		<div class="notificacion">
+			{{user}}
+		</div>
+	{{/if}}
+	<h2>Nuevo user</h2>
+	<form method="post" action="/create-user" class="form-group">
+		<input type="text" class="form-control" name="user" placeholder="Usuario" required >
+		<input type="password" class="form-control" name="pass" placeholder="Password" required >
+		<select class="form-control" name="rol">
+			<option value="1">usuario</option>
+			<option value="0">administrador</option>
+		</select>
+		<div>
+			<!--<span class="glyphicon glyphicon-calendar"></span>-->
+			<input type="date" name="caducidad" class="form-control">
+		</div>
+		<input type="submit" class="form-control" name="Enviar" value="Create">
+	</form>
+
+	<h2>Nueva vps</h2>
+	<form method="post" action="/create-vps" class="form-group">
+		<input type="text" class="form-control" name="ip" placeholder="IP" required >
+		<input type="text" class="form-control" name="puertos" placeholder="Puertos" required >
+		<input type="text" class="form-control" name="user" placeholder="Usuario" required >
+		<input type="password" class="form-control" name="pass" placeholder="Contraseña" required >
+		<input type="number" class="form-control" name="conexiones" min="1" placeholder="Conexiones" required >
+		<select class="form-control" name="localidad">
+			<option value="usa">USA</option>
+			<option value="canada">Canada</option>
+		</select>
+		<input type="submit" class="form-control" name="Enviar" value="Create">
+	</form>
+{{>footer}}
