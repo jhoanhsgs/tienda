@@ -4,7 +4,7 @@
   "description": "Venta de vps - net Tienda",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "start": "node index.js"
   },
   "author": "EdwiinRtz - jhoanhsgs",
   "license": "ISC",
